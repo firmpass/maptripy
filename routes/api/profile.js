@@ -6,4 +6,6 @@ const router = express.Router();
 // @access  Public
 router.get("/test", (req, res) => res.json({ msg: "Profile Works" }));
 
+router.get("/", (req, res) => res.json({ msg: "MOTHER FUCKIN PROFILE YALL" }));
+
 module.exports = router;
