@@ -182,7 +182,7 @@ router.post(
 );
 
 // @route   POST api/profile/bucketlist
-// @desc    Post new locations visited
+// @desc    Post new locations that users would like to visit
 // @access  Private
 router.post(
   "/bucketlist",
@@ -207,6 +207,55 @@ router.post(
 
       profile.save().then(profile => res.json(profile));
     });
+  }
+);
+
+// @route   DELETE api/profile/visited/:id
+// @desc    Delete visited location from profile
+// @access  Private
+
+router.delete(
+  "/visited/:visited_id",
+  passport.authenticate("jwt", { session: false }),
+  (req, res) => {
+    Profile.findOne({ user: req.user.id })
+      .then(profile => {
+        //remove index
+        const removeVisited = profile.visited
+          .map(item => item.id)
+          .indexOf(req.params.visited_id);
+
+        //splice out of array
+        profile.visited.splice(removeVisited, 1);
+
+        //save
+        profile.save().then(profile => res.json(profile));
+      })
+      .catch(err => res.status(404).json(err));
+  }
+);
+
+// @route   DELETE api/profile/bucketlist
+// @desc    Delete bucketlist items from profile
+// @access  Private
+router.delete(
+  "/bucketlist/bucketlist_id",
+  passport.authenticate("jwt", { session: false }),
+  (req, res) => {
+    Profile.findOne({ user: req.user.id })
+      .then(profile => {
+        //remove index
+        const removeBucketList = profile.bucketlist
+          .map(item => item.id)
+          .indexOf(req.params.bucketlist_id);
+
+        //splice out of array
+        profile.visited.splice(removeBucketList, 1);
+
+        //save
+        profile.save().then(profile => res.json(profile));
+      })
+      .catch(err => res.status(404).json(err));
   }
 );
 
