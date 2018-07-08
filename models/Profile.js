@@ -21,13 +21,16 @@ const ProfileSchema = new Schema({
   visited: [
     {
       location: {
-        type: String
+        type: String,
+        required: true
       },
       from: {
-        type: Date
+        type: Date,
+        required: true
       },
       to: {
-        type: Date
+        type: Date,
+        required: true
       },
       synopsis: {
         type: String
@@ -37,7 +40,8 @@ const ProfileSchema = new Schema({
   bucketlist: [
     {
       location: {
-        type: String
+        type: String,
+        required: true
       },
       time: {
         type: Date
