@@ -239,7 +239,7 @@ router.delete(
 // @desc    Delete bucketlist items from profile
 // @access  Private
 router.delete(
-  "/bucketlist/bucketlist_id",
+  "/bucketlist/:bucketlist_id",
   passport.authenticate("jwt", { session: false }),
   (req, res) => {
     Profile.findOne({ user: req.user.id })
@@ -250,7 +250,7 @@ router.delete(
           .indexOf(req.params.bucketlist_id);
 
         //splice out of array
-        profile.visited.splice(removeBucketList, 1);
+        profile.bucketlist.splice(removeBucketList, 1);
 
         //save
         profile.save().then(profile => res.json(profile));
