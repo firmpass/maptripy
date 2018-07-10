@@ -25,7 +25,7 @@ module.exports = function validateRegisterInput(data) {
     errors.password2 = "Confirm Password is required";
   }
 
-  if (Validator.isEmail(data.email)) {
+  if (!Validator.isEmail(data.email)) {
     errors.email = "Must enter a valid email address";
   }
 

@@ -7,7 +7,7 @@ const User = require("../../models/User");
 
 //Validation filed
 const validateProfileInput = require("../../validation/profile");
-const validateLocationInput = require("../../validation/location");
+const validateVisitedInput = require("../../validation/visited");
 const validateBucketListInput = require("../../validation/bucketlist");
 
 // @route   GET api/profile/test
@@ -158,7 +158,7 @@ router.post(
   "/visited",
   passport.authenticate("jwt", { session: false }),
   (req, res) => {
-    const { errors, isValid } = validateLocationInput(req.body);
+    const { errors, isValid } = validateVisitedInput(req.body);
 
     // Check Validation
     if (!isValid) {
@@ -221,12 +221,12 @@ router.delete(
     Profile.findOne({ user: req.user.id })
       .then(profile => {
         //remove index
-        const removeVisited = profile.visited
+        const removeVisitedItem = profile.visited
           .map(item => item.id)
           .indexOf(req.params.visited_id);
 
         //splice out of array
-        profile.visited.splice(removeVisited, 1);
+        profile.visited.splice(removeVisitedItem, 1);
 
         //save
         profile.save().then(profile => res.json(profile));
@@ -236,7 +236,7 @@ router.delete(
 );
 
 // @route   DELETE api/profile/bucketlist
-// @desc    Delete bucketlist items from profile
+// @desc    Delete bucketlist item from profile
 // @access  Private
 router.delete(
   "/bucketlist/:bucketlist_id",
@@ -245,12 +245,12 @@ router.delete(
     Profile.findOne({ user: req.user.id })
       .then(profile => {
         //remove index
-        const removeBucketList = profile.bucketlist
+        const removeBucketListItem = profile.bucketlist
           .map(item => item.id)
           .indexOf(req.params.bucketlist_id);
 
         //splice out of array
-        profile.bucketlist.splice(removeBucketList, 1);
+        profile.bucketlist.splice(removeBucketListItem, 1);
 
         //save
         profile.save().then(profile => res.json(profile));
@@ -259,4 +259,19 @@ router.delete(
   }
 );
 
+// @route   DELETE api/profile/
+// @desc    Delete user/profile
+// @access  Private
+
+router.delete(
+  "/",
+  passport.authenticate("jwt", { session: false }),
+  (req, res) => {
+    Profile.findOneAndRemove({ user: req.user.id }).then(() => {
+      User.findOneAndRemove({ _id: req.user.id }).then(() =>
+        res.json({ success: true })
+      );
+    });
+  }
+);
 module.exports = router;
