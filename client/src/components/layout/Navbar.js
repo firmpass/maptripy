@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import axios from "axios";
 
 class Navbar extends Component {
   constructor() {
@@ -20,11 +21,14 @@ class Navbar extends Component {
   onSubmit(event) {
     event.preventDefault();
 
-    const logInUser = {
+    const user = {
       email: this.state.email,
       password: this.state.password
     };
-    console.log(logInUser);
+    axios
+      .post("api/users/login", user)
+      .then(res => console.log(res.data))
+      .catch(err => console.log(err));
   }
 
   render() {

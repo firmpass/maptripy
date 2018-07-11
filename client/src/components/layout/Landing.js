@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import axios from "axios";
 
 class Landing extends Component {
   constructor() {
@@ -28,7 +29,10 @@ class Landing extends Component {
       password: this.state.password,
       password2: this.state.password2
     };
-    console.log(newUser);
+    axios
+      .post("/api/users/register", newUser)
+      .then(res => console.log(res.data))
+      .catch(err => console.log(err));
   }
 
   render() {
@@ -39,9 +43,7 @@ class Landing extends Component {
             <div className="row">
               <div className="column">
                 <div className="text-left ">
-                  <h1 className="display-3 text-center">
-                    <img src="./img/world.gif" />MapTripy
-                  </h1>
+                  <h1 className="display-3 text-center">MapTripy</h1>
 
                   <p className="leads">
                     {" "}
@@ -77,7 +79,6 @@ class Landing extends Component {
                         name="name"
                         value={this.state.name}
                         onChange={this.onChange}
-                        required
                       />
                     </div>
                     <div className="form-group">
@@ -88,7 +89,6 @@ class Landing extends Component {
                         name="email"
                         value={this.state.email}
                         onChange={this.onChange}
-                        required
                       />
                     </div>
                     <div className="form-group">
@@ -99,7 +99,6 @@ class Landing extends Component {
                         name="password"
                         value={this.state.password}
                         onChange={this.onChange}
-                        required
                       />
                     </div>
                     <div className="form-group">
@@ -110,7 +109,6 @@ class Landing extends Component {
                         name="password2"
                         value={this.state.password2}
                         onChange={this.onChange}
-                        required
                       />
                     </div>
                     <input
