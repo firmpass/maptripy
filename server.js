@@ -30,7 +30,7 @@ app.use(passport.initialize());
 require("./config/passport")(passport);
 
 app.get("/", (req, res) => {
-  req.json({msg: "Test Worked"});s
+  res.json({msg: "Test Worked"});s
 }
 // Use routes
 app.use("/api/profile", profile);
