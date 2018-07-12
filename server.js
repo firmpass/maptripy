@@ -29,6 +29,10 @@ app.use(passport.initialize());
 //Passport Config
 require("./config/passport")(passport);
 
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "/client/build/index.html"));
+});
+
 // Use routes
 
 app.use("/api/profile", profile);
