@@ -13,6 +13,11 @@ const app = express();
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
+//Server static assests (heroku)
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static("client/build"));
+}
+
 //Db config
 const db = require("./config/keys").mongoURI;
 
@@ -28,10 +33,6 @@ app.use(passport.initialize());
 
 //Passport Config
 require("./config/passport")(passport);
-
-app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "/client/build/index.html"));
-});
 
 // Use routes
 
