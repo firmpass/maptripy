@@ -19,11 +19,13 @@
     "body-parser": "^1.18.3",
     "concurrently": "^3.6.0",
     "express": "^4.16.3",
+    "google-maps-react": "^2.0.2",
     "gravatar": "^1.6.0",
     "jsonwebtoken": "^8.3.0",
     "mongoose": "^5.1.7",
     "passport": "^0.4.0",
     "passport-jwt": "^4.0.0",
-    "validator": "^10.4.0"
+    "validator": "^10.4.0",
+    "webpack": "^4.16.0"
   }
 }

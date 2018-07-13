@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import Map from '../map/Map';
 
 class Profile extends Component {
   render() {
@@ -13,7 +14,9 @@ class Profile extends Component {
               <div className="row">
                 <div className="col-md-12">
                   <div className="card card-body bg-info text-white mb-3">
+                  
                     <div className="row">
+                    <div id="map"><Map/></div>
                       <div className="col-4 col-md-3 m-auto">
                         <img
                           className="rounded-circle"
@@ -21,6 +24,7 @@ class Profile extends Component {
                           alt=""
                         />
                       </div>
+                      
                     </div>
                     <div className="text-center">
                       <h1 className="display-4 text-center">Jack lin</h1>
@@ -90,7 +94,10 @@ class Profile extends Component {
                 </ul>
               </div>
             </div>
+            <div>
+            </div>
           </div>
+          
         </div>
       </div>
     );
