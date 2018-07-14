@@ -17,10 +17,6 @@ const PostSchema = new Schema({
   avatar: {
     type: String
   },
-  //bucketlist destination (make sure property)
-  bucketdest: {
-    type: String
-  },
   likes: [
     {
       user: {

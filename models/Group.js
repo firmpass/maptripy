@@ -3,6 +3,10 @@ const Schema = mongoose.Schema;
 
 //Create Schema - what each Post will have.
 const GroupSchema = new Schema({
+  admin: {
+    type: Schema.Types.ObjectId,
+    ref: "users"
+  },
   groupName: {
     type: String,
     required: true
@@ -19,14 +23,6 @@ const GroupSchema = new Schema({
     type: String,
     required: true
   },
-  users: [
-    {
-      user: {
-        type: Schema.Types.ObjectId,
-        ref: "users"
-      }
-    }
-  ],
   comments: [
     {
       user: {
@@ -46,6 +42,14 @@ const GroupSchema = new Schema({
       date: {
         type: Date,
         default: Date.now
+      }
+    }
+  ],
+  members: [
+    {
+      user: {
+        type: Schema.Types.ObjectId,
+        ref: "users"
       }
     }
   ]

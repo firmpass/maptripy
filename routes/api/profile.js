@@ -60,7 +60,6 @@ router.post(
     if (req.body.handle) profileFields.handle = req.body.handle;
     if (req.body.location) profileFields.location = req.body.location;
     if (req.body.bio) profileFields.bio = req.body.bio;
-    if (req.body.status) profileFields.status = req.body.status;
 
     // Social
     profileFields.social = {};
@@ -68,6 +67,7 @@ router.post(
     if (req.body.facebook) profileFields.social.facebook = req.body.facebook;
     if (req.body.instagram) profileFields.social.instagram = req.body.instagram;
 
+    //find profile by ID
     Profile.findOne({ user: req.user.id }).then(profile => {
       if (profile) {
         // Update Profile if one exists
