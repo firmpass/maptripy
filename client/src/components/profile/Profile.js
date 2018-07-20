@@ -2,6 +2,11 @@ import React, { Component } from "react";
 import Map from '../map/Map';
 
 class Profile extends Component {
+  constructor() {
+    super();
+    this.state = {name: "ET"};
+  }
+
   render() {
     return (
       <div className="profile">
@@ -14,14 +19,16 @@ class Profile extends Component {
               <div className="row">
                 <div className="col-md-12">
                   <div className="card card-body bg-info text-white mb-3">
+                  < div id = "map" > < Map / > < /div>
                   
                     <div className="row">
-                    <div id="map"><Map/></div>
+                    
+                    
                       <div className="col-4 col-md-3 m-auto">
                         <img
                           className="rounded-circle"
                           src="https://www.gravatar.com/avatar/anything?s=200&d=mm"
-                          alt=""
+                          alt = "/Users/ericthornton/gt/maptripy/client/src/img/avatarGif.gif"
                         />
                       </div>
                       
