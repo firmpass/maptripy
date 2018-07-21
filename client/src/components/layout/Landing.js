@@ -23,7 +23,7 @@ class Landing extends Component {
 
   componentDidMount() {
     if (this.props.auth.isAuthenticated) {
-      this.props.history.push("/create-profile");
+      this.props.history.push("/feed");
     }
   }
 
@@ -48,13 +48,6 @@ class Landing extends Component {
     };
 
     this.props.registerUser(newUser, this.props.history);
-
-    const userData = {
-      email: this.state.email,
-      password: this.state.password
-    };
-
-    this.props.loginUser(userData);
   }
 
   render() {
@@ -64,7 +57,7 @@ class Landing extends Component {
         <div className="dark-overlay landing-inner text-light">
           <div className="container">
             <div className="row">
-              <div className="col-md-12 text-center">
+              <div className="col-md-6 text-center">
                 <h1 className="display-3 text-center">MapTripy</h1>
 
                 <p className="leads">
@@ -84,7 +77,7 @@ class Landing extends Component {
                   behind” ~Marty Rubin{" "}
                 </p>
               </div>
-              <div className="col-md-8 m-auto">
+              <div className="col-md-6 m-auto">
                 <h1 className="display-4 text-center">Sign Up</h1>
                 <p className="lead text-center">Create your MapTripy account</p>
                 <form noValidate onSubmit={this.onSubmit}>
@@ -149,13 +142,3 @@ export default connect(
   mapStateToProps,
   { registerUser, loginUser }
 )(withRouter(Landing));
-
-// Landing.propTypes = {
-//   auth: PropTypes.object.isRequired
-// };
-
-// const mapStateToProps = state => ({
-//   auth: state.auth
-// });
-
-// export default connect(mapStateToProps)(Landing);

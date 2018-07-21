@@ -1,14 +1,16 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
-import TextAreaFieldGroup from '../common/TextAreaFieldGroup';
-import { addPost } from '../../actions/postActions';
+import React, { Component } from "react";
+import { Link } from "react-router-dom";
+import PropTypes from "prop-types";
+import { connect } from "react-redux";
+import TextAreaFieldGroup from "../common/TextAreaFieldGroup";
+import { addPost } from "../../actions/postActions";
+import Posts from "./Posts";
 
 class PostForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      text: '',
+      text: "",
       errors: {}
     };
 
@@ -34,7 +36,7 @@ class PostForm extends Component {
     };
 
     this.props.addPost(newPost);
-    this.setState({ text: '' });
+    this.setState({ text: "" });
   }
 
   onChange(e) {
@@ -43,26 +45,44 @@ class PostForm extends Component {
 
   render() {
     const { errors } = this.state;
+    const { post } = this.props;
 
     return (
-      <div className="post-form mb-3">
-        <div className="card card-info">
-          <div className="card-header bg-info text-white">Say Somthing...</div>
-          <div className="card-body">
-            <form onSubmit={this.onSubmit}>
-              <div className="form-group">
-                <TextAreaFieldGroup
-                  placeholder="Create a post"
-                  name="text"
-                  value={this.state.text}
-                  onChange={this.onChange}
-                  error={errors.text}
-                />
+      <div className="row">
+        <div className="col-md-2">
+          <div className="card card-info">
+            <div className="card-header bg-info text-white">Test</div>
+            <div className="card-body">
+              <Link className="nav-link" to="/">
+                Tips
+              </Link>
+            </div>
+          </div>
+        </div>
+
+        <div className="col-md-10">
+          <div className="post-form mb-3">
+            <div className="card card-info">
+              <div className="card-header bg-info text-white">
+                Say Somthing...
               </div>
-              <button type="submit" className="btn btn-dark">
-                Submit
-              </button>
-            </form>
+              <div className="card-body">
+                <form onSubmit={this.onSubmit}>
+                  <div className="form-group">
+                    <TextAreaFieldGroup
+                      placeholder="Create a post"
+                      name="text"
+                      value={this.state.text}
+                      onChange={this.onChange}
+                      error={errors.text}
+                    />
+                  </div>
+                  <button type="submit" className="float-right btn btn-dark ">
+                    Submit
+                  </button>
+                </form>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -81,4 +101,7 @@ const mapStateToProps = state => ({
   errors: state.errors
 });
 
-export default connect(mapStateToProps, { addPost })(PostForm);
+export default connect(
+  mapStateToProps,
+  { addPost }
+)(PostForm);

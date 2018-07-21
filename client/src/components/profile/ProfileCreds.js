@@ -5,58 +5,38 @@ class ProfileCreds extends Component {
   render() {
     const { visited, bucketlist } = this.props;
 
-    const expItems = visited.map(exp => (
-      <li key={exp._id} className="list-group-item">
-        <h4>{exp.company}</h4>
+    const visItems = visited.map(vis => (
+      <li key={vis._id} className="list-group-item">
+        <h4>{vis.location}</h4>
         <p>
-          <Moment format="YYYY/MM/DD">{exp.from}</Moment> -
-          {exp.to === null ? (
-            " Now"
-          ) : (
-            <Moment format="YYYY/MM/DD">{exp.to}</Moment>
-          )}
+          <Moment format="MM/DD/YYYY">{vis.from}</Moment> -
+          <Moment format="MM/DD/YYYY">{vis.to}</Moment>
         </p>
         <p>
-          <strong>Position:</strong> {exp.title}
-        </p>
-        <p>
-          {exp.location === "" ? null : (
+          {vis.description === "" ? null : (
             <span>
-              <strong>Location: </strong> {exp.location}
+              <strong>Description: </strong> {vis.description}
             </span>
           )}
         </p>
-        <p>
-          {exp.description === "" ? null : (
-            <span>
-              <strong>Description: </strong> {exp.description}
-            </span>
-          )}
-        </p>
+        <p> {vis.synopsis}</p>
       </li>
     ));
-
-    const eduItems = bucketlist.map(edu => (
-      <li key={edu._id} className="list-group-item">
-        <h4>{edu.school}</h4>
+    const bukItems = bucketlist.map(buk => (
+      <li key={buk._id} className="list-group-item">
+        <h4>{buk.location}</h4>
         <p>
-          <Moment format="YYYY/MM/DD">{edu.from}</Moment> -
-          {edu.to === null ? (
+          <Moment format="MM/DD/YYYY">{buk.from}</Moment> -
+          {buk.to === null ? (
             " Now"
           ) : (
-            <Moment format="YYYY/MM/DD">{edu.to}</Moment>
+            <Moment format="MM/DD/YYYY">{buk.to}</Moment>
           )}
         </p>
         <p>
-          <strong>Degree:</strong> {edu.degree}
-        </p>
-        <p>
-          <strong>Field Of Study:</strong> {edu.fieldofstudy}
-        </p>
-        <p>
-          {edu.description === "" ? null : (
+          {buk.description === "" ? null : (
             <span>
-              <strong>Description: </strong> {edu.description}
+              <strong>TripyDo: </strong> {buk.description}
             </span>
           )}
         </p>
@@ -65,25 +45,24 @@ class ProfileCreds extends Component {
     return (
       <div className="row">
         <div className="col-md-6">
-          <h3 className="text-center text-info">visited</h3>
-          {expItems.length > 0 ? (
-            <ul className="list-group">{expItems}</ul>
+          <h3 className="text-center text-info"> Visited</h3>
+          {visItems.length > 0 ? (
+            <ul className="list-group"> {visItems}</ul>
           ) : (
-            <p className="text-center">No visited Listed</p>
+            <p className="text-center">No Visited Places Listed.</p>
           )}
         </div>
 
         <div className="col-md-6">
-          <h3 className="text-center text-info">bucketlist</h3>
-          {eduItems.length > 0 ? (
-            <ul className="list-group">{eduItems}</ul>
+          <h3 className="text-center text-info"> Bucketlist</h3>
+          {bukItems.length > 0 ? (
+            <ul className="list-group"> {bukItems}</ul>
           ) : (
-            <p className="text-center">No bucketlist Listed</p>
+            <p className="text-center">No Bucketlisit Listed.</p>
           )}
         </div>
       </div>
     );
   }
 }
-
 export default ProfileCreds;

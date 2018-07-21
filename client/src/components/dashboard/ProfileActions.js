@@ -9,11 +9,11 @@ const ProfileActions = () => {
       </Link>
       <Link to="/add-visited" className="btn btn-light">
         <i className="fab fa-black-tie text-info mr-1" />
-        Add Visited
+        Edit Visited
       </Link>
       <Link to="/add-bucketlist" className="btn btn-light">
         <i className="fas fa-graduation-cap text-info mr-1" />
-        Add Bucketlist
+        Edit Bucketlist
       </Link>
     </div>
   );

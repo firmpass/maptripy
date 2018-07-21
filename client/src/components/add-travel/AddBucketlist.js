@@ -64,7 +64,7 @@ class AddBucketlist extends Component {
               <Link to="/dashboard" className="btn btn-light">
                 Go Back
               </Link>
-              <h1 className="display-4 text-center">Add Your Bucketlist</h1>
+              <h1 className="display-4 text-center">Edit Your Bucketlist</h1>
               <p className="lead text-center">
                 Add Locations you would like to visit.
               </p>

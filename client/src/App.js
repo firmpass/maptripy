@@ -16,8 +16,10 @@ import Landing from "./components/layout/Landing";
 import Dashboard from "./components/dashboard/Dashboard";
 import CreateProfile from "./components/create-profile/CreateProfile";
 import EditProfile from "./components/edit-profile/EditProfile";
-import AddPast from "./components/add-travel/AddPast";
+import AddVisited from "./components/add-travel/AddVisited";
 import AddBucketlist from "./components/add-travel/AddBucketlist";
+import Login from "./components/auth/Login";
+import Login2 from "./components/auth/Login2";
 import Profiles from "./components/profiles/Profiles";
 import Profile from "./components/profile/Profile";
 import Posts from "./components/posts/Posts";
@@ -55,6 +57,8 @@ class App extends Component {
           <div className="App">
             <Navbar />
             <Route exact path="/" component={Landing} />
+            <Route exact path="/login" component={Login} />
+            <Route exact path="/login2" component={Login2} />
             <div className="container">
               <Route exact path="/profiles" component={Profiles} />
               <Route exact path="/profile/:handle" component={Profile} />
@@ -76,7 +80,11 @@ class App extends Component {
                 />
               </Switch>
               <Switch>
-                <PrivateRoute exact path="/add-past" component={AddPast} />
+                <PrivateRoute
+                  exact
+                  path="/add-visited"
+                  component={AddVisited}
+                />
               </Switch>
               <Switch>
                 <PrivateRoute

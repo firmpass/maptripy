@@ -2,54 +2,11 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
+import world from "./world.gif";
 import { logoutUser } from "../../actions/authActions";
-import { loginUser } from "../../actions/authActions";
 import { clearCurrentProfile } from "../../actions/profileActions";
 
 class Navbar extends Component {
-  constructor() {
-    super();
-    this.state = {
-      email: "",
-      password: "",
-      errors: {}
-    };
-
-    this.onChange = this.onChange.bind(this);
-    this.onSubmit = this.onSubmit.bind(this);
-  }
-
-  componentDidMount() {
-    if (this.props.auth.isAuthenticated) {
-      this.props.history.push("/dashboard");
-    }
-  }
-
-  componentWillReceiveProps(nextProps) {
-    if (nextProps.auth.isAuthenticated) {
-      this.props.history.push("/dashboard");
-    }
-
-    if (nextProps.errors) {
-      this.setState({ errors: nextProps.errors });
-    }
-  }
-
-  onSubmit(e) {
-    e.preventDefault();
-
-    const userData = {
-      email: this.state.email,
-      password: this.state.password
-    };
-
-    this.props.loginUser(userData);
-  }
-
-  onChange(e) {
-    this.setState({ [e.target.name]: e.target.value });
-  }
-
   onLogoutClick(e) {
     e.preventDefault();
     this.props.clearCurrentProfile();
@@ -63,7 +20,7 @@ class Navbar extends Component {
       <ul className="navbar-nav ml-auto">
         <li className="nav-item">
           <Link className="nav-link" to="/feed">
-            Post Feed
+            Feed
           </Link>
         </li>
         <li className="nav-item">
@@ -91,41 +48,23 @@ class Navbar extends Component {
     );
 
     const guestLinks = (
-      <form onSubmit={this.onSubmit}>
-        <div className="collapse navbar-collapse" id="mobile-nav">
-          <ul className="navbar-nav ml-auto">
-            <div className="form-group">
-              <input
-                type="email"
-                className="form-control form-control-sm"
-                placeholder="Email Address"
-                name={"email"}
-                value={this.state.email}
-                onChange={this.onChange}
-              />
-            </div>
-
-            <div className="form-group">
-              <input
-                type="password"
-                className="form-control form-control-sm"
-                placeholder="Password"
-                name="password"
-                value={this.state.password}
-                onChange={this.onChange}
-              />
-            </div>
-            <button className="btn btn-info" type="submit">
-              Login
-            </button>
-          </ul>
-        </div>
-      </form>
+      <ul className="navbar-nav ml-auto">
+        <li className="nav-item">
+          <Link className="nav-link" to="/login">
+            Login
+          </Link>
+        </li>
+      </ul>
     );
 
     return (
       <nav className="navbar navbar-expand-sm navbar-dark bg-dark mb-4">
         <div className="container">
+          <img
+            src={world}
+            style={{ width: "50px", marginRight: "6px", display: "block" }}
+            alt="Loading..."
+          />
           <Link className="navbar-brand" to="/">
             MapTripy
           </Link>
@@ -140,12 +79,7 @@ class Navbar extends Component {
 
           <div className="collapse navbar-collapse" id="mobile-nav">
             <ul className="navbar-nav mr-auto">
-              <li className="nav-item">
-                <Link className="nav-link" to="/profiles">
-                  {" "}
-                  Users
-                </Link>
-              </li>
+              <li className="nav-item" />
             </ul>
             {isAuthenticated ? authLinks : guestLinks}
           </div>
@@ -156,18 +90,15 @@ class Navbar extends Component {
 }
 
 Navbar.propTypes = {
-  loginUser: PropTypes.func.isRequired,
   logoutUser: PropTypes.func.isRequired,
-  auth: PropTypes.object.isRequired,
-  errors: PropTypes.object.isRequired
+  auth: PropTypes.object.isRequired
 };
 
 const mapStateToProps = state => ({
-  auth: state.auth,
-  errors: state.errors
+  auth: state.auth
 });
 
 export default connect(
   mapStateToProps,
-  { loginUser, logoutUser, clearCurrentProfile }
+  { logoutUser, clearCurrentProfile }
 )(Navbar);

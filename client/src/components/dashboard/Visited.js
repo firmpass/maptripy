@@ -12,15 +12,10 @@ class Visited extends Component {
   render() {
     const visited = this.props.visited.map(vis => (
       <tr key={vis._id}>
-        <td>{vis.company}</td>
-        <td>{vis.title}</td>
+        <td>{vis.location}</td>
         <td>
-          <Moment format="YYYY/MM/DD">{vis.from}</Moment> -
-          {vis.to === null ? (
-            " Now"
-          ) : (
-            <Moment format="YYYY/MM/DD">{vis.to}</Moment>
-          )}
+          <Moment format="MM/DD/YYYY">{vis.from}</Moment> -
+          <Moment format="MM/DD/YYYY">{vis.to}</Moment>
         </td>
         <td>
           <button

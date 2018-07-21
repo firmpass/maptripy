@@ -46,6 +46,13 @@ class AddVisited extends Component {
     this.setState({ [e.target.name]: e.target.value });
   }
 
+  onCheck(e) {
+    this.setState({
+      disabled: !this.state.disabled,
+      current: !this.state.current
+    });
+  }
+
   render() {
     const { errors } = this.state;
 
@@ -57,7 +64,7 @@ class AddVisited extends Component {
               <Link to="/dashboard" className="btn btn-light">
                 Go Back
               </Link>
-              <h1 className="display-4 text-center">Add Where You Have Been</h1>
+              <h1 className="display-4 text-center">Where You Have Been</h1>
               <p className="lead text-center">
                 Add any places you have visited.
               </p>

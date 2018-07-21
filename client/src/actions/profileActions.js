@@ -51,7 +51,7 @@ export const getProfileByHandle = handle => dispatch => {
 export const createProfile = (profileData, history) => dispatch => {
   axios
     .post("/api/profile", profileData)
-    .then(res => history.push("/create-profile"))
+    .then(res => history.push("/feed"))
     .catch(err =>
       dispatch({
         type: GET_ERRORS,
@@ -61,9 +61,9 @@ export const createProfile = (profileData, history) => dispatch => {
 };
 
 // Add visited
-export const addVisited = (expData, history) => dispatch => {
+export const addVisited = (visData, history) => dispatch => {
   axios
-    .post("/api/profile/visited", expData)
+    .post("/api/profile/visited", visData)
     .then(res => history.push("/dashboard"))
     .catch(err =>
       dispatch({
@@ -74,9 +74,9 @@ export const addVisited = (expData, history) => dispatch => {
 };
 
 // Add bucketlist
-export const addBucketlist = (eduData, history) => dispatch => {
+export const addBucketlist = (bukData, history) => dispatch => {
   axios
-    .post("/api/profile/bucketlist", eduData)
+    .post("/api/profile/bucketlist", bukData)
     .then(res => history.push("/dashboard"))
     .catch(err =>
       dispatch({

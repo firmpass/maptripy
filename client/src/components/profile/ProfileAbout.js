@@ -13,15 +13,33 @@ class ProfileAbout extends Component {
       <div className="row">
         <div className="col-md-12">
           <div className="card card-body bg-light mb-3">
-            <h3 className="text-center text-info">{firstName}'s Bio</h3>
-            <p className="lead">
-              {isEmpty(profile.bio) ? (
-                <span>{firstName} does not have a bio</span>
-              ) : (
-                <span>{profile.bio}</span>
-              )}
-            </p>
-            <hr />
+            <div className="row">
+              <div className="col-1 col-md-2 ml-5">
+                <img
+                  className="rounded-circle"
+                  src={profile.user.avatar}
+                  alt=""
+                />
+              </div>
+              <div className="col-8 col-md-8 mt-4">
+                <h3 className="text-center text-info">{firstName}</h3>
+                <h5 className="text-center text-info">
+                  Current Location: {profile.location}
+                </h5>
+                <hr />
+              </div>
+            </div>
+            <div className="row">
+              <div className="col-12">
+                <p className="col-lead text-center">
+                  {isEmpty(profile.bio) ? (
+                    <span>{firstName} does not have a bio</span>
+                  ) : (
+                    <span>{profile.bio}</span>
+                  )}
+                </p>
+              </div>
+            </div>
           </div>
         </div>
       </div>
