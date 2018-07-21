@@ -10,7 +10,10 @@ class ProfileHeader extends Component {
     return (
       <div className="row">
         <div className="col-md-12">
-          <div className="card card-body bg-info text-white mb-3">
+          <div
+            className="card card-body bg-info text-white mb-3"
+            style={{ height: 340 + "px" }}
+          >
             <div className="map-profile" id="map">
               {" "}
               <Map />

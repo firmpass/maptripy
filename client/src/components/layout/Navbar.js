@@ -3,6 +3,10 @@ import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import world from "./world.gif";
+import login from "./login.PNG";
+import logout from "./logout.PNG";
+import dashboard from "./dashboard.PNG";
+import feed from "./Group Copy 3.PNG";
 import logo from "./maptripylogo2.png";
 import { logoutUser } from "../../actions/authActions";
 import { clearCurrentProfile } from "../../actions/profileActions";
@@ -21,12 +25,20 @@ class Navbar extends Component {
       <ul className="navbar-nav ml-auto">
         <li className="nav-item">
           <Link className="nav-link" to="/feed">
-            Feed
+            <img
+              src={feed}
+              style={{ width: "150px", margin: "auto", display: "block" }}
+              alt="Loading..."
+            />
           </Link>
         </li>
         <li className="nav-item">
           <Link className="nav-link" to="/dashboard">
-            Dashboard
+            <img
+              src={dashboard}
+              style={{ width: "150px", margin: "auto", display: "block" }}
+              alt="Loading..."
+            />
           </Link>
         </li>
         <li className="nav-item">
@@ -42,7 +54,11 @@ class Navbar extends Component {
               style={{ width: "25px", marginRight: "5px" }}
               title="You must have a Gravatar connected to your email to display an image"
             />{" "}
-            Logout
+            <img
+              src={logout}
+              style={{ width: "150px", margin: "auto", display: "block" }}
+              alt="Loading..."
+            />
           </a>
         </li>
       </ul>
@@ -52,7 +68,11 @@ class Navbar extends Component {
       <ul className="navbar-nav ml-auto">
         <li className="nav-item">
           <Link className="nav-link" to="/login">
-            Login
+            <img
+              src={login}
+              style={{ width: "150px", margin: "auto", display: "block" }}
+              alt="Loading..."
+            />
           </Link>
         </li>
       </ul>
