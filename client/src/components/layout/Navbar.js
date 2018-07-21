@@ -2,12 +2,12 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
-import world from "./world.gif";
-import login from "./login.png";
-import logout from "./logout.png";
-import dashboard from "./dash.png";
-import feed from "./feed.png";
-import logo from "./maptripy.png";
+import world from "../../img/world.gif";
+import login from "../../img/login.png";
+import logout from "../../img/logout.png";
+import dashboard from "../../img/dash.png";
+import feed from "../../img/feed.png";
+import logo from "../../img/maptripy.png";
 import { logoutUser } from "../../actions/authActions";
 import { clearCurrentProfile } from "../../actions/profileActions";
 
