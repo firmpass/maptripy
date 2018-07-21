@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import world from "./world.gif";
+import logo from "./maptripylogo2.png";
 import { logoutUser } from "../../actions/authActions";
 import { clearCurrentProfile } from "../../actions/profileActions";
 
@@ -66,7 +67,11 @@ class Navbar extends Component {
             alt="Loading..."
           />
           <Link className="navbar-brand" to="/">
-            MapTripy
+            <img
+              src={logo}
+              style={{ width: "150px", margin: "auto", display: "block" }}
+              alt="Loading..."
+            />
           </Link>
           <button
             className="navbar-toggler"

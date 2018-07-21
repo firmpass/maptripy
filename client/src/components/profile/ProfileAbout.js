@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import avatarGif from "./avatarGif.gif";
 import PropTypes from "prop-types";
 import isEmpty from "../../validation/is-empty";
 
@@ -18,7 +19,7 @@ class ProfileAbout extends Component {
                 <img
                   className="rounded-circle"
                   src={profile.user.avatar}
-                  alt=""
+                  alt={avatarGif}
                 />
               </div>
               <div className="col-8 col-md-8 mt-4">

@@ -5,6 +5,7 @@ import { connect } from "react-redux";
 import { registerUser } from "../../actions/authActions";
 import { loginUser } from "../../actions/authActions";
 import TextFieldGroup from "../common/TextFieldGroup";
+import Map from "../map/Map";
 
 class Landing extends Component {
   constructor() {
@@ -57,25 +58,19 @@ class Landing extends Component {
         <div className="dark-overlay landing-inner text-light">
           <div className="container">
             <div className="row">
-              <div className="col-md-6 text-center">
-                <h1 className="display-3 text-center">MapTripy</h1>
-
-                <p className="leads">
+              <div
+                className="col-md-6 text-center"
+                style={{ height: 340 + "px" }}
+              >
+                <h4 className="leads mb-4 mt-3 text-center">
+                  Create a User profile, that allows people to plan and share
+                  travel plans. This site is made for the conveyance of group
+                  travel.
+                </h4>
+                <div id="map">
                   {" "}
-                  Create a User profile, that dashboardows people to plan and
-                  share travel plans. This site is made for the conveyance of
-                  group travel.{" "}
-                </p>
-                <p className="leads">
-                  {" "}
-                  “It is not the destination where you end up but the mishaps
-                  and memories you create along the way.”{" "}
-                </p>
-                <p className="leads">
-                  {" "}
-                  “Travel doesn't become adventure until you leave yourself
-                  behind” ~Marty Rubin{" "}
-                </p>
+                  <Map />
+                </div>
               </div>
               <div className="col-md-6 m-auto">
                 <h1 className="display-4 text-center">Sign Up</h1>

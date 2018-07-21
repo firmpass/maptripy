@@ -1,5 +1,7 @@
 import React, { Component } from "react";
+import avatarGif from "./avatarGif.gif";
 import isEmpty from "../../validation/is-empty";
+import Map from "../map/Map";
 
 class ProfileHeader extends Component {
   render() {
@@ -9,14 +11,9 @@ class ProfileHeader extends Component {
       <div className="row">
         <div className="col-md-12">
           <div className="card card-body bg-info text-white mb-3">
-            <div className="row">
-              <div className="col-4 col-md-3 m-auto">
-                <img
-                  className="rounded-circle"
-                  src={profile.user.avatar}
-                  alt=""
-                />
-              </div>
+            <div className="map-profile" id="map">
+              {" "}
+              <Map />
             </div>
             <div className="text-left">
               <h1 className="display-4 text-left">{profile.user.name}</h1>
