@@ -1,8 +1,11 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
+import checklist from "../../img/checklist.png";
 import Moment from "react-moment";
 import { deleteBucketlist } from "../../actions/profileActions";
+import calander from "../../img/calander.png";
+import map from "../../img/map.png";
 
 class Bucketlist extends Component {
   onDeleteClick(id) {
@@ -29,12 +32,31 @@ class Bucketlist extends Component {
     ));
     return (
       <div>
-        <h4 className="mb-4">Bucketlist</h4>
-        <table className="table">
+        <h4 className="text-center mb-4">
+          <img
+            src={checklist}
+            style={{ width: "35px", margin: "auto", display: "round" }}
+            alt="Loading..."
+          />
+          Bucketlist
+        </h4>
+        <table className="text-center table">
           <thead>
             <tr>
-              <th>Location</th>
-              <th>Expected Departure</th>
+              <th>
+                <img
+                  src={map}
+                  style={{ width: "35px", margin: "auto", display: "round" }}
+                />
+                Location
+              </th>
+              <th>
+                <img
+                  src={calander}
+                  style={{ width: "35px", margin: "auto", display: "round" }}
+                />
+                Expected Departure/Return
+              </th>
               <th />
             </tr>
             {bucketlist}

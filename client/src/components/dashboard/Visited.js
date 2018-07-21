@@ -3,6 +3,9 @@ import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import Moment from "react-moment";
 import { deleteVisited } from "../../actions/profileActions";
+import passport from "../../img/passport.png";
+import calander from "../../img/calander.png";
+import map from "../../img/map.png";
 
 class Visited extends Component {
   onDeleteClick(id) {
@@ -29,12 +32,29 @@ class Visited extends Component {
     ));
     return (
       <div>
-        <h4 className="mb-4">Where I've Been</h4>
-        <table className="table">
+        <h4 className="text-center mb-4">
+          <img
+            src={passport}
+            style={{ width: "35px", margin: "auto", display: "round" }}
+          />Where I've Been
+        </h4>
+        <table className="text-center table">
           <thead>
             <tr>
-              <th>Location</th>
-              <th>Dates Traveled</th>
+              <th>
+                <img
+                  src={map}
+                  style={{ width: "35px", margin: "auto", display: "round" }}
+                />
+                Location
+              </th>
+              <th>
+                <img
+                  src={calander}
+                  style={{ width: "35px", margin: "auto", display: "round" }}
+                />
+                Dates Traveled
+              </th>
               <th />
             </tr>
             {visited}

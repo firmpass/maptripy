@@ -3,11 +3,11 @@ import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import world from "./world.gif";
-import login from "./login.PNG";
-import logout from "./logout.PNG";
-import dashboard from "./dashboard.PNG";
-import feed from "./Group Copy 3.PNG";
-import logo from "./maptripylogo2.png";
+import login from "./login.png";
+import logout from "./logout.png";
+import dashboard from "./dash.png";
+import feed from "./feed.png";
+import logo from "./maptripy.png";
 import { logoutUser } from "../../actions/authActions";
 import { clearCurrentProfile } from "../../actions/profileActions";
 
@@ -27,7 +27,7 @@ class Navbar extends Component {
           <Link className="nav-link" to="/feed">
             <img
               src={feed}
-              style={{ width: "150px", margin: "auto", display: "block" }}
+              style={{ width: "80px", margin: "auto", display: "block" }}
               alt="Loading..."
             />
           </Link>
@@ -36,10 +36,18 @@ class Navbar extends Component {
           <Link className="nav-link" to="/dashboard">
             <img
               src={dashboard}
-              style={{ width: "150px", margin: "auto", display: "block" }}
+              style={{ width: "90px", margin: "auto", display: "block" }}
               alt="Loading..."
             />
           </Link>
+        </li>
+        <li className="nav-item">
+          <img
+            className="rounded-circle"
+            src={user.avatar}
+            alt={user.name}
+            style={{ width: "30px", marginTop: "12px", display: "block" }}
+          />
         </li>
         <li className="nav-item">
           <a
@@ -48,15 +56,8 @@ class Navbar extends Component {
             className="nav-link"
           >
             <img
-              className="rounded-circle"
-              src={user.avatar}
-              alt={user.name}
-              style={{ width: "25px", marginRight: "5px" }}
-              title="You must have a Gravatar connected to your email to display an image"
-            />{" "}
-            <img
               src={logout}
-              style={{ width: "150px", margin: "auto", display: "block" }}
+              style={{ width: "115px", margin: "auto", display: "block" }}
               alt="Loading..."
             />
           </a>
@@ -70,7 +71,7 @@ class Navbar extends Component {
           <Link className="nav-link" to="/login">
             <img
               src={login}
-              style={{ width: "150px", margin: "auto", display: "block" }}
+              style={{ width: "80px", margin: "auto", display: "block" }}
               alt="Loading..."
             />
           </Link>
@@ -89,7 +90,7 @@ class Navbar extends Component {
           <Link className="navbar-brand" to="/">
             <img
               src={logo}
-              style={{ width: "150px", margin: "auto", display: "block" }}
+              style={{ width: "190px", margin: "auto", display: "block" }}
               alt="Loading..."
             />
           </Link>

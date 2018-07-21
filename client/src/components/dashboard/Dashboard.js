@@ -29,17 +29,25 @@ class Dashboard extends Component {
       // Check if logged in user has profile data
       if (Object.keys(profile).length > 0) {
         dashboardContent = (
-          <div>
-            <p className="lead text-muted">
+          <div className="text-center">
+            <p className="text-center lead text-muted">
               Welcome <Link to={`/profile/${profile.handle}`}>{user.name}</Link>
             </p>
-            <ProfileActions />
-            <Visited visited={profile.visited} />
-            <Bucketlist bucketlist={profile.bucketlist} />
+            <div>
+              <ProfileActions />
+              <div className="row">
+                <div className="col-md-5 m-auto">
+                  <Visited visited={profile.visited} />
+                </div>
+                <div className="col-md-5 m-auto">
+                  <Bucketlist bucketlist={profile.bucketlist} />
+                </div>
+              </div>
+            </div>
             <div style={{ marginBottom: "60px" }} />
             <button
               onClick={this.onDeleteClick.bind(this)}
-              className="btn btn-danger"
+              className="float-right btn btn-danger"
             >
               Delete My Account
             </button>
@@ -61,7 +69,7 @@ class Dashboard extends Component {
 
     return (
       <div className="dashboard">
-        <div className="container">
+        <div className="text-center container">
           <div className="row">
             <div className="col-md-12">
               <h1 className="display-4">Dashboard</h1>

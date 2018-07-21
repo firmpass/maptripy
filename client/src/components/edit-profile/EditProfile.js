@@ -14,6 +14,7 @@ class CreateProfile extends Component {
     this.state = {
       displaySocialInputs: false,
       handle: "",
+      location: "",
       bio: "",
       twitter: "",
       facebook: "",
@@ -38,6 +39,7 @@ class CreateProfile extends Component {
       const profile = nextProps.profile.profile;
 
       // If profile field doesnt exist, make empty string
+      profile.location = !isEmpty(profile.location) ? profile.location : "";
       profile.bio = !isEmpty(profile.bio) ? profile.bio : "";
       profile.social = !isEmpty(profile.social) ? profile.social : {};
       profile.twitter = !isEmpty(profile.social.twitter)
@@ -52,6 +54,7 @@ class CreateProfile extends Component {
 
       // Set component fields state
       this.setState({
+        handle: profile.handle,
         location: profile.location,
         bio: profile.bio,
         twitter: profile.twitter,
@@ -67,6 +70,7 @@ class CreateProfile extends Component {
     const profileData = {
       handle: this.state.handle,
       bio: this.state.bio,
+      location: this.state.location,
       twitter: this.state.twitter,
       facebook: this.state.facebook,
       instagram: this.state.instagram
