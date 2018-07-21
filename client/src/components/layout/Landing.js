@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
@@ -128,7 +128,7 @@ class Landing extends Component {
 }
 
 export default Landing;
-=======
+
 import React, { Component } from "react";
 import { PropTypes } from "prop-types";
 import { withRouter } from "react-router-dom";
@@ -268,4 +268,3 @@ export default connect(
   mapStateToProps,
   { registerUser, loginUser }
 )(withRouter(Landing));
->>>>>>> baa0f1a6172ac7669907e5bd7fdb6bc348e03bb5
