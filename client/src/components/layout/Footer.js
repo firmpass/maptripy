@@ -12,7 +12,7 @@ class Footer extends Component {
           padding: "0px",
           position: "absolute",
           left: "0",
-          bottom: "-200px",
+          bottom: "-100px",
           height: "60px",
           width: "100%"
         }}
