@@ -13,6 +13,11 @@ const app = express();
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
+//Server static assests (heroku)
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static("client/build"));
+}
+
 //Db config
 const db = require("./config/keys").mongoURI;
 
@@ -30,8 +35,9 @@ app.use(passport.initialize());
 require("./config/passport")(passport);
 
 // Use routes
-app.use("/api/users", users);
+
 app.use("/api/profile", profile);
+app.use("/api/users", users);
 app.use("/api/posts", posts);
 
 const PORT = process.env.PORT || 5000;
