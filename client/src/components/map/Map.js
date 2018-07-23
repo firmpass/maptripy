@@ -1,8 +1,7 @@
 import React, { Component } from "react";
 import { Map, InfoWindow, Marker, GoogleApiWrapper } from "google-maps-react";
 
-import data from './stateList'; // TODO
-
+import data from "./stateList"; // TODO
 
 export class Container extends Component {
   constructor(props) {
@@ -30,74 +29,79 @@ export class Container extends Component {
       showingInfoWindow: false,
       activeMarker: {},
       selectedPlace: {},
-    }
+      lat: 33.7756,
+      lng: -84.3963
+    };
   }
 
-
-  onMarkerClick = (props, marker, e) => this.setState({
-    selectedPlace: props,
-    activeMarker: marker,
-    showingInfoWindow: true
-  });
-
+  onMarkerClick = (props, marker, e) =>
+    this.setState({
+      selectedPlace: props,
+      activeMarker: marker,
+      showingInfoWindow: true
+    });
 
   fetchPlaces(mapProps, map) {
     const { google } = mapProps;
     const service = new google.maps.places.PlaceService(map);
   }
 
-
   componentDidMount = () => {
     this.addLocation();
   };
 
-
   displayMarker(lists) {
-    return lists.map(({ lat, lng, name }) => <Marker
-      className={"Gtech"}
-      desitnation={"Test 1"}
-      name={"Georgia Tech"}
-      position={{ lat, lng }}
-      onClick={this.onMarkerClick}
-      name={name}
-    />);
+    return lists.map(({ lat, lng, name }) => (
+      <Marker
+        className={"Gtech"}
+        desitnation={"Test 1"}
+        name={"Georgia Tech"}
+        position={{ lat, lng }}
+        onClick={this.onMarkerClick}
+        name={name}
+      />
+    ));
   }
 
   addLocation = () => {
     let counter = 0;
-    var startMarker = window.setInterval(function () {
-      counter++;
+    var startMarker = window.setInterval(
+      function() {
+        counter++;
 
-      // TODO
-      // Remember to change the name of the destination array
-      if (data.length - 1 > counter) {
-        this.setState({
-          data: [...this.state.data, data[counter]] // TODO Remember to change the name of the destination array
-        });
-        return;
-      }
-      window.clearInterval(startMarker);
+        // TODO
+        // Remember to change the name of the destination array
+        if (data.length - 1 > counter) {
+          this.setState({
+            data: [...this.state.data, data[counter]], // TODO Remember to change the name of the destination array
+            lat: data[counter].lat,
+            lng: data[counter].lng
+          });
+          return;
+        }
+        window.clearInterval(startMarker);
+      }.bind(this),
+      5000
+    );
+  };
 
-    }.bind(this), 1000);
-  }
-
-  onMapClicked = (props) => {
+  onMapClicked = props => {
     if (this.state.showingInfoWindow) {
       this.setState({
         showingInfoWindow: false,
         activeMarker: null
-      })
+      });
     }
   };
-
-
 
   render() {
     if (!this.props.loaded) {
       return <div>Loading</div>;
     }
 
-    console.log('State: ', this.state);
+    console.log("State: ", this.state);
+
+    console.log("Lat: ", this.state.data.lat);
 
     return (
       <Map
@@ -107,7 +111,11 @@ export class Container extends Component {
           lat: 33.749,
           lng: -84.388
         }}
-        zoom={2}
+        center={{
+          lat: this.state.lat,
+          lng: this.state.lng
+        }}
+        zoom={5}
         onClick={this.onMapClicked}
       >
         {/* Miami - Marker hardcoded we need to add lat & lng for major US states and possible major countries */}
@@ -115,14 +123,14 @@ export class Container extends Component {
 
         <InfoWindow
           marker={this.state.activeMarker}
-          visible={this.state.showingInfoWindow}>
+          visible={this.state.showingInfoWindow}
+        >
           <div>
             <h1>{this.state.selectedPlace.name}</h1>
           </div>
-
         </InfoWindow>
       </Map>
-    )
+    );
   }
 }
 
