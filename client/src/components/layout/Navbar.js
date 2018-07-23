@@ -27,7 +27,7 @@ class Navbar extends Component {
           <Link className="nav-link" to="/feed">
             <img
               src={feed}
-              style={{ width: "80px", margin: "auto", display: "block" }}
+              style={{ width: "83px", margin: "auto", display: "block" }}
               alt="Loading..."
             />
           </Link>
@@ -80,10 +80,12 @@ class Navbar extends Component {
     );
 
     return (
-      <nav className="navbar navbar-expand-sm navbar-dark bg-dark mb-4" 
-            style={{
-                    boxShadow: "5px 5px 5px grey",        
-            }}>
+      <nav
+        className="navbar navbar-expand-sm navbar-dark bg-dark mb-4"
+        style={{
+          boxShadow: "5px 5px 5px grey"
+        }}
+      >
         <div className="container">
           <img
             src={world}

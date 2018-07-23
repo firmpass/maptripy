@@ -7,6 +7,7 @@ import Spinner from "../common/Spinner";
 import ProfileActions from "./ProfileActions";
 import Visited from "./Visited";
 import Bucketlist from "./Bucketlist";
+import Map from "../map/Map";
 
 class Dashboard extends Component {
   componentDidMount() {
@@ -30,9 +31,20 @@ class Dashboard extends Component {
       if (Object.keys(profile).length > 0) {
         dashboardContent = (
           <div className="text-center">
-            <p className="text-center lead text-muted">
-              Welcome <Link to={`/profile/${profile.handle}`}>{user.name}</Link>
-            </p>
+            <div className="row">
+              <div className="col-12">
+                <p className="text-center lead text-muted">
+                  Welcome{" "}
+                  <Link to={`/profile/${profile.handle}`}>{user.name}</Link>
+                </p>
+              </div>
+              <div className="col-10 offset-md-1 mt-3">
+                <div id="map" style={{ height: 250 + "px" }}>
+                  {" "}
+                  <Map />
+                </div>
+              </div>
+            </div>
             <div>
               <ProfileActions />
               <div className="row">

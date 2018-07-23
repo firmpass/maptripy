@@ -10,9 +10,9 @@ class Footer extends Component {
           borderTop: "0px solid #E7E7E7",
           textAlign: "center",
           padding: "0px",
-          position: "absolute",
+          position: "fixed",
           left: "0",
-          bottom: "-100px",
+          bottom: "0px",
           height: "60px",
           width: "100%"
         }}

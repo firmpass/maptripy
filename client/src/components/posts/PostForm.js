@@ -49,18 +49,7 @@ class PostForm extends Component {
 
     return (
       <div className="row">
-        <div className="col-md-2">
-          <div className="card card-info">
-            <div className="card-header bg-info text-white">Test</div>
-            <div className="card-body">
-              <Link className="nav-link" to="/">
-                Tips
-              </Link>
-            </div>
-          </div>
-        </div>
-
-        <div className="col-md-10">
+        <div className="col-md-12">
           <div className="post-form mb-3">
             <div className="card card-info">
               <div className="card-header bg-info text-white">
