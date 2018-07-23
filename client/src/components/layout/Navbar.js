@@ -80,7 +80,10 @@ class Navbar extends Component {
     );
 
     return (
-      <nav className="navbar navbar-expand-sm navbar-dark bg-dark mb-4">
+      <nav className="navbar navbar-expand-sm navbar-dark bg-dark mb-4" 
+            style={{
+                    boxShadow: "5px 5px 5px grey",        
+            }}>
         <div className="container">
           <img
             src={world}
