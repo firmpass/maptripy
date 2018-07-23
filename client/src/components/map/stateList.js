@@ -1,65 +1,65 @@
 
 
 const states = [{
-        lat: 32.806671,
-        lng: -86.791130,
-        name: 'Georia'
+        lat: 33.748995,
+        lng: -84.387982,
+        name: 'Atlanta'
     },
 
     {
-        lat: 61.370716,
-        lng: -152.404419,
+        lat: 25.761680,
+        lng: -80.191790,
         name: 'Miami'
     },
 
     {
-        lat: 33.729759,
-        lng: -111.431221,
+        lat: 34.052234,
+        lng: -118.243685,
+        name: 'Los Angeles'
+    },
+
+
+    {
+        lat: 43.653226,
+        lng: -79.383184,
+        name: 'Toronto'
+    },
+
+
+    {
+        lat: 32.750286,
+        lng: 129.877667,
+        name: 'Nagasaki'
+    },
+
+    {
+        lat: -33.924869,
+        lng: 18.424055,
+        name: 'Cape Town'
+    },
+
+    {
+        lat: 29.760427,
+        lng: -95.369803,
+        name: 'Houston'
+    },
+
+    {
+        lat: 40.712775,
+        lng: -74.005973,
         name: 'New York'
     },
 
-
     {
-        lat: 34.969704,
-        lng: -92.373123,
-        name: 'Haiti'
-    },
-
-
-    {
-        lat: 36.116203,
-        lng: -119.681564,
-        name: 'Japan'
+        lat: -22.906847,
+        lng: -43.172896,
+        name: 'Rio De Janero'
     },
 
     {
-        lat: 39.059811,
-        lng: -105.311104,
-        name: 'France'
-    },
-
-    {
-        lat: 41.597782,
-        lng: -72.755371,
-        name: 'Bresil'
-    },
-
-    {
-        lat: 39.318523,
-        lng: -75.507141,
-        name: 'Argentina'
-    },
-
-    {
-        lat: 38.897438,
-        lng: -77.026817,
-        name: 'New Orland'
-    },
-
-    {
-        lat: 27.766279,
-        lng: -81.686783,
-        name: 'DR'
+        lat: 19.780769,
+        lng: -70.687109,
+        name: 'Puerto Plata'
     },
 
 ];
