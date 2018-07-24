@@ -64,11 +64,12 @@ class AddVisited extends Component {
               <Link to="/dashboard" className="btn btn-light">
                 Go Back
               </Link>
-              <h1 className="display-4 text-center">Where You Have Been</h1>
+              <h1 className="display-4 text-center">
+                Track Your Trips and Getaways
+              </h1>
               <p className="lead text-center">
-                Add any places you have visited.
+                Share your previous trips and getaways
               </p>
-              <small className="d-block pb-3">* = required fields</small>
               <form onSubmit={this.onSubmit}>
                 <TextFieldGroup
                   placeholder="* location"
