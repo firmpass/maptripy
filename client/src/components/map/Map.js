@@ -115,7 +115,7 @@ export class Container extends Component {
           lat: this.state.lat,
           lng: this.state.lng
         }}
-        zoom={5}
+        zoom={8}
         onClick={this.onMapClicked}
       >
         {/* Miami - Marker hardcoded we need to add lat & lng for major US states and possible major countries */}
