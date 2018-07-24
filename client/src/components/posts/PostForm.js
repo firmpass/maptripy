@@ -52,9 +52,7 @@ class PostForm extends Component {
         <div className="col-md-12">
           <div className="post-form mb-3">
             <div className="card card-info">
-              <div className="card-header bg-info text-white">
-                Say Somthing...
-              </div>
+              <div className="card-header bg-info text-white">Tripy Feed</div>
               <div className="card-body">
                 <form onSubmit={this.onSubmit}>
                   <div className="form-group">

@@ -34,7 +34,7 @@ class Dashboard extends Component {
             <div className="row">
               <div className="col-12">
                 <p className="text-center lead text-muted">
-                  Welcome{" "}
+                  Welcome To MapTripy{" "}
                   <Link to={`/profile/${profile.handle}`}>{user.name}</Link>
                 </p>
               </div>

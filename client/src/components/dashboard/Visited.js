@@ -36,7 +36,7 @@ class Visited extends Component {
           <img
             src={passport}
             style={{ width: "35px", margin: "auto", display: "round" }}
-          />Where I've Been
+          />My Trips
         </h4>
         <table className="text-center table">
           <thead>
