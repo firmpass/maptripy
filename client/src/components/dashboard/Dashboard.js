@@ -48,10 +48,10 @@ class Dashboard extends Component {
             <div>
               <ProfileActions />
               <div className="row">
-                <div className="col-md-5 m-auto">
+                <div className="col-md-6">
                   <Visited visited={profile.visited} />
                 </div>
-                <div className="col-md-5 m-auto">
+                <div className="col-md-6">
                   <Bucketlist bucketlist={profile.bucketlist} />
                 </div>
               </div>
