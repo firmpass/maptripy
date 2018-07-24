@@ -81,7 +81,7 @@ export class Container extends Component {
         }
         window.clearInterval(startMarker);
       }.bind(this),
-      1000
+      3000
     );
   };
 

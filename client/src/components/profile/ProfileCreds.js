@@ -15,7 +15,7 @@ class ProfileCreds extends Component {
         <p>
           {vis.description === "" ? null : (
             <span>
-              <strong>Description: </strong> {vis.description}
+              <strong>Description: </strong> {vis.synopsis}
             </span>
           )}
         </p>
@@ -36,7 +36,7 @@ class ProfileCreds extends Component {
         <p>
           {buk.description === "" ? null : (
             <span>
-              <strong>TripyDo: </strong> {buk.description}
+              <strong>TripyDo: </strong> {buk.synopsis}
             </span>
           )}
         </p>
