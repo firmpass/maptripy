@@ -21,7 +21,7 @@ const ProfileActions = () => {
           style={{ width: "35px", margin: "auto", display: "round" }}
           alt="Loading..."
         />
-        Edit Visited
+        Add to My Trips
       </Link>
       <Link to="/add-bucketlist" className="btn btn-light">
         <img
@@ -29,7 +29,7 @@ const ProfileActions = () => {
           style={{ width: "35px", margin: "auto", display: "round" }}
           alt="Loading..."
         />
-        Edit Bucketlist
+        Add to Bucketlist
       </Link>
     </div>
   );
