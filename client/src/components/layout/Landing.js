@@ -24,7 +24,7 @@ class Landing extends Component {
 
   componentDidMount() {
     if (this.props.auth.isAuthenticated) {
-      this.props.history.push("/feed");
+      this.props.history.push("/dashboard");
     }
   }
 
