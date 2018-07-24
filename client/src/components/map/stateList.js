@@ -1,7 +1,7 @@
 const states = [
   {
-    lat: 33.748995,
-    lng: -84.387982,
+    lat: 33.7756,
+    lng: -84.3963,
     name: "Atlanta"
   },
 
@@ -185,6 +185,61 @@ const states = [
     lat: 37.338208,
     lng: -121.886329,
     name: "San Jose"
+  },
+  {
+    lat: 55.755826,
+    lng: 37.6173,
+    name: "Moscow"
+  },
+  {
+    lat: 40.416775,
+    lng: -3.70379,
+    name: "Madrid"
+  },
+  {
+    lat: 41.385064,
+    lng: 2.173403,
+    name: "Barcelona"
+  },
+  {
+    lat: 59.93428,
+    lng: 30.335099,
+    name: "Saint Petersburg"
+  },
+  {
+    lat: 52.520007,
+    lng: 13.404954,
+    name: "Berlin"
+  },
+  {
+    lat: 45.464204,
+    lng: 9.189982,
+    name: "Milan"
+  },
+  {
+    lat: 37.98381,
+    lng: 23.727539,
+    name: "Athens"
+  },
+  {
+    lat: 50.4501,
+    lng: 30.5234,
+    name: "Kiev"
+  },
+  {
+    lat: 38.722252,
+    lng: -9.139337,
+    name: "Lisbon"
+  },
+  {
+    lat: 53.480759,
+    lng: -2.242631,
+    name: "Manchester"
+  },
+  {
+    lat: 33.7756,
+    lng: -84.3963,
+    name: "Georgia Institute of Technology"
   }
 ];
 
